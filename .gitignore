@@ -1,0 +1,7 @@
+*.tmp
+*.pyc
+env/
+*.swp
+app/static/
+log/
+logfile
