@@ -1,0 +1,39 @@
+
+<html>
+<head>
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form action="/shortener" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit", value="OK">
+    </form>
+
+    <p>
+    {{view.kwargs.full_url}}
+    <input class="js-copyline" size=40 value={{view.kwargs.result}}>
+    <button class="js-copy-btn">Copy</button>
+    </p>
+
+<script type="text/javascript">
+  var copyBtn = document.querySelector('.js-copy-btn');
+
+  copyBtn.addEventListener('click', function(event){
+    var copyLine = document.querySelector('.js-copyline');
+    copyLine.focus();
+    copyLine.select();
+
+    try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'fail';
+      console.log('Copy text command was ' + msg);
+
+    } catch (err) {
+      console.log('Unable to copy');
+    }
+  });
+</script>
+</body>
+</html>

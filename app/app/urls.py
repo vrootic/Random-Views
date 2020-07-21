@@ -16,11 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from shortener.views import UrlMappingCreateView, resolve_url
+
 from .currency import CurrencyView
 from . import views
 
 urlpatterns = [
+    #path('', views.index),
     path('admin/', admin.site.urls),
-    path('', views.index),
     path('currency/', CurrencyView.as_view()),
+    
+    path('shortener', UrlMappingCreateView.as_view()),
+    path('shortener/<int:pk>', UrlMappingCreateView.as_view(), name='create-view'),
+    path('url/<str:url_hash>', resolve_url),
 ]
