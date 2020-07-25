@@ -5,3 +5,4 @@ env/
 app/static/
 log/
 logfile
+.idea/
