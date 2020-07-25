@@ -3,6 +3,9 @@
 <head>
 <title>Page Title</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
+<!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
 </head>
 <body>
     <form action="/shortener" method="POST">
@@ -13,8 +16,8 @@
 
     <p>
     {{view.kwargs.full_url}}
-    <input class="js-copyline" size=40 value={{view.kwargs.result}}>
-    <button class="js-copy-btn">Copy</button>
+    <div><input class="js-copyline" size=40 value={{view.kwargs.result}}></div>
+    <div><button class="js-copy-btn">Copy</button></div>
     </p>
 
 <script type="text/javascript">
